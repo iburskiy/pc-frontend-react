@@ -1,0 +1,4 @@
+# redirects all urls to Homepage
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . / [L,R=301]

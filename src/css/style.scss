@@ -1,0 +1,564 @@
+$color-blue: #165DBA;
+$color-light-blue: #0000EE;
+$color-red: #cc0000;
+$color-white: #FFFFFF;
+$color-gray: #808080;
+$color-lightgray: #D3D3D3;
+$color-lightergray: #F0F0F0;
+$color-almost-black: #2C3038;
+
+@mixin button-inner-css($buttonSelector) {
+  display: inline-block;
+  padding: 8px 36px;
+  background-color: $color-blue;
+  color: $color-white;
+  border-radius: 3px;
+  letter-spacing: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+
+  &:hover {
+    #{$buttonSelector}__label {
+      margin-left: 10px;
+    }
+
+    #{$buttonSelector}__icon {
+      left: 12px;
+      opacity: 1;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    position: relative;
+    margin-left: 0;
+    transition: 0.5s;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0;
+    top: 9px;
+    transition: 0.5s;
+    opacity: 0;
+  }
+}
+
+@mixin button() {
+  $selector: '.button';
+
+  #{$selector} {
+    @include button-inner-css($selector);
+
+    &_red {
+      background-color: $color-red;
+    }
+  }
+}
+@mixin button-square() {
+  $selector: '.button-square';
+
+  #{$selector} {
+    @include button-inner-css($selector);
+    padding: 8px 20px 8px 8px;
+
+    &__label {
+      margin-left: 10px;
+    }
+    &__icon {
+      left: 12px;
+      opacity: 1;
+    }
+  }
+}
+
+@mixin button-small() {
+  $selector: '.button-small';
+
+  #{$selector} {
+    @include button-inner-css($selector);
+    padding: 8px 20px 0 8px;
+
+    &__label {
+      margin-left: 0;
+    }
+    &__icon {
+      left: 7px;
+      top: 4px;
+      opacity: 1;
+    }
+    &:hover {
+      #{$selector}__label {
+        margin-left: 0;
+      }
+      #{$selector}__icon {
+        position: absolute;
+        left: 7px;
+      }
+    }
+  }
+}
+
+@mixin disable-default-list-styles() {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin field-mixin {
+  width: 250px;
+  height: 40px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 1000px;
+  margin-bottom: 40px;
+}
+
+@include button();
+
+@include button-square();
+
+@include button-small();
+
+.homepage {
+  display: flex;
+  margin-top: 10px;
+}
+
+.sidebar {
+  flex: 0 0 25%;
+}
+
+.filters-range {
+  @include disable-default-list-styles();
+  margin-bottom: 20px;
+}
+
+.filters-list {
+  @include disable-default-list-styles();
+}
+
+.filter {
+  margin-bottom: 12px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__list {
+    list-style-type: none;
+    margin-top: 3px;
+  }
+}
+
+.range {
+  margin-top: 10px;
+
+  @mixin rangeInput() {
+    width: 25%;
+    padding: 0 12px;
+    height: 24px;
+    border-radius: 5px;
+    border: 1px solid $color-gray;
+  }
+
+  &__min {
+    @include rangeInput();
+  }
+
+  &__from {
+    width: 12%;
+    display: inline-block;
+    text-align: center;
+  }
+
+  &__max {
+    @include rangeInput();
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 12%;
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__clear {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:visited {
+      color: blue;
+    }
+  }
+}
+
+.list-filter {
+  &__checkbox {
+    margin-right: 5px;
+    vertical-align: middle;
+    position: relative;
+    bottom: 1px;
+    cursor: pointer;
+  }
+
+  &__label {
+    cursor: pointer;
+  }
+}
+
+.search {
+  position: relative;
+  margin-bottom: 20px;
+
+  &__icon {
+    color: black;
+    svg {
+      position: absolute;
+      top: 10px;
+      left: 12px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0;
+    height: 35px;
+    text-indent: 35px;
+    font-size: 1em;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid $color-gray;
+    color: $color-almost-black;
+
+    &::placeholder {
+      font-style: italic;
+      font-size: 1em;
+      color: $color-gray;
+    }
+  }
+
+  &__close-icon {
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    cursor: pointer;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  &__logo {
+    max-height: 50px;
+  }
+
+  &__left {
+    margin-left: 50px;
+  }
+
+  &__right {
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__welcome-message {
+    margin-right: 20px;
+    font-size: 1.5em;
+  }
+}
+
+.button-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.products-container {
+  position: relative;
+
+  &.loading {
+    opacity: 0.5;
+  }
+
+  .spinner {
+    position: absolute;
+    top: 150px;
+    left: calc(50% - 50px);
+  }
+}
+
+.products {
+  flex: 1 1 auto;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.product {
+  display: flex;
+  padding: 10px;
+  border: 1px solid $color-lightgray;
+  border-bottom: 0;
+  border-radius: 5px;
+
+  &:last-child {
+    border-bottom: 1px solid $color-lightgray;
+  }
+  &__left {
+    width: 150px;
+    flex: 0 0 150px;
+  }
+  &__right {
+    margin-left: 10px;
+    width: 100%;
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__admin-buttons {
+    margin-left: 10px;
+    flex: 0 0 66px;
+  }
+  &__delete {
+    background-color: $color-red;
+    margin-left: 10px;
+  }
+  &__edit {
+    background-color: $color-red;
+  }
+  &__image {
+    max-width: 150px;
+    max-height: 150px;
+    display: block;
+  }
+  &__description {
+    margin-top: 10px;
+    padding-left: 15px;
+    list-style-type: disc;
+  }
+  &__description-item {
+    margin-bottom: 4px;
+  }
+  &__price {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+}
+.admin-panel {
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+
+  &__button-wrapper {
+    flex: 0 0 33.3%;
+  }
+  &__button-wrapper:last-child {
+    display: flex;
+    justify-content: end;
+  }
+
+  &__fields {
+    margin-left: 30px;
+  }
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+
+  &__left {
+    flex: 0 0 40%;
+  }
+
+  &__right {
+    flex: 0 0 40%;
+  }
+
+  &__image {
+    max-width: 500px;
+  }
+}
+
+.property {
+  display: flex;
+  border-bottom: 1px solid $color-almost-black;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+
+  &__left {
+    flex: 50%;
+    font-weight: bold;
+  }
+  &__right {
+    flex: 50%;
+  }
+}
+
+.product-edit {
+  &__form {
+    padding-top: 30px;
+  }
+}
+
+.form {
+  $form-label-width: 200px;
+
+  &__row {
+    padding-bottom: 20px;
+  }
+  &__field {
+    @include field-mixin();
+  }
+  &__label {
+    width: $form-label-width;
+    display: inline-block;
+    text-align: right;
+    padding-right: 10px;
+    box-sizing: border-box;
+  }
+  &__unit {
+    margin-left: 5px;
+  }
+  &__image {
+    max-width: 150px;
+    max-height: 150px;
+  }
+  &__clear-image-icon {
+    margin-left: 10px;
+  }
+  &__submit-wrapper {
+    padding-top: 20px;
+    padding-left: $form-label-width;
+  }
+}
+
+// This technique uses two style definitions:
+// one to visually hide the link, and another using the a:focus pseudo-class to visually reveal the link while it has focus.
+#skip-filters a {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+}
+
+.product-lookup-page {
+  margin-bottom: 50px;
+}
+
+.product-lookup {
+  margin-top: 40px;
+
+  &__title {
+    font-weight: bolder;
+    font-size: 20px;
+  }
+  &__content {
+    margin-top: 20px;
+  }
+  &__old {
+    margin-top: 30px;
+  }
+  &__item {
+    margin-top: 20px;
+  }
+  &__field {
+    @include field-mixin();
+  }
+  &__icon {
+    margin-left: 10px;
+  }
+}
+
+.question-icon {
+  margin-left: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.filters-page {
+  border-collapse: collapse;
+  border: 1px solid black;
+
+  &__item {
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding: 7px;
+
+    &_nowrap {
+      white-space: nowrap;
+    }
+    &_chkbox {
+      text-align: center;
+      transform: scale(1.2);
+    }
+  }
+  &__chkbox {
+    cursor: pointer;
+  }
+  &_grayed {
+    background-color: $color-lightergray;
+  }
+}
+
+.pagination {
+  margin-top: 40px;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+
+  li {
+    box-sizing: border-box;
+    border: 1px solid $color-lightgray;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    color: $color-light-blue;
+    margin-right: 10px;
+  }
+  .selected {
+    background-color: $color-light-blue;
+    color: $color-white;
+  }
+  .disabled {
+    color: $color-gray;
+    background-color: $color-white;
+    cursor: auto;
+  }
+  .page-number {
+    // hack to expand clickable area
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    padding: 10px;
+    margin: -10px;
+  }
+}

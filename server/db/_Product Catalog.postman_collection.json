@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "deab6111-9c0c-4596-964b-7232e3049507",
+		"name": "_Product Catalog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3348669"
+	},
+	"item": [
+		{
+			"name": "Get all products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/product/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Masha\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/product/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve product by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/product/retrieve/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"retrieve",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve product by code",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/product/retrieve/code/HEPB450687P3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"retrieve",
+						"code",
+						"HEPB450687P3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Masha Moskaleva\", \"image\": \"data:image/png;base64,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\", \"image_name\": \"kuku.png\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/product/update/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"update",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/product/delete/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"delete",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all product fields",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/product-field/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product-field",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product field",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"filterable\": \"0\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/product-field/update/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product-field",
+						"update",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
